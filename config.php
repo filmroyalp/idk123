@@ -16,5 +16,13 @@ $headers .= "Reply-To: $visitor_email \r\n";
 
 mail($to,$email_subject,$email_body,$headers);
 
+
+  if ($_POST['log']) {
+        if (mail ($to, $subject, $body, $from)) {
+            echo '<p>Your message has been sent!</p>';
+        } else {
+            echo '<p>Something went wrong, go back and try again!</p>';
+        }
+    }
 header("location: index.html")
 ?>
